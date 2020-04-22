@@ -2,20 +2,20 @@
 <head>
 	<title>Teste JavaScript</title>
 	<script>
-		function acendeLampada() {
-			document.getElementById("Luz").src="_imagens/lampada-acesa.jpg";
-		}
-		function apagaLampada(){
-			document.getElementById("Luz").src="_imagens/lampada-apagada.jpg";
-		}
-		function quebraLampada(){
-			document.getElementById("Luz").src="_imagens/lampada-quebrada.jpg";
+		var quebrada = false;
+		function mudaLampada(tipo) {
+			if (!quebrada){
+				document.getElementById("Luz").src = "_imagens/" + tipo + ".jpg";
+				if (tipo == 'lampada-quebrada'){
+					quebrada = true;
+				}
+			}
 		}
 	</script>
 <head> 
 <body>
 	<h1>Acenda a lâmpada</h1>
-	<img src="_imagens/lampada-apagada.jpg" id="Luz" onmousemove="acendeLampada()" onmouseout="apagaLampada()" onclick="quebraLampada()"/>
+	<img src="_imagens/lampada-apagada.jpg" id="Luz" onmousemove="mudaLampada('lampada-acesa')" onmouseout="mudaLampada('lampada-apagada')" onclick="mudaLampada('lampada-quebrada')"/>
 	
 </body>
 </html>
